@@ -18,9 +18,10 @@
     <p><strong>There are no orders for this customer.</strong></p>
   <% else %>
     <h2>Orders</h2>
-    <table>
+    <table class="table">
       <thead>
         <tr>
+          <th></th>
           <th>Product name</th>
           <th>Product count</th>
           <th colspan="3"></th>
@@ -29,11 +30,12 @@
       <tbody>
         <% customer.orders.each do |order| %>
           <tr>
+            <td><i class="fas fa-atom"></i></td>
             <td><%= order.product_name %></td>
             <td><%= order.product_count %></td>
-            <td><%= link_to 'Show', order %></td>
-            <td><%= link_to 'Edit', edit_order_path(order) %></td>
-            <td><%= button_to 'Destroy', order, method: :delete, form: { data: { turbo_confirm: "Are you sure?" } } %></td>
+            <td><%= link_to 'Show', order, class: "btn btn-primary" %></td>
+            <td><%= link_to 'Edit', edit_order_path(order), class: "btn btn-primary" %></td>
+            <td><%= button_to 'Destroy', order, method: :delete, form: { data: { turbo_confirm: "Are you sure?" } }, class: "btn btn-primary" %></td>
           </tr>
         <% end %>
       </tbody>
